@@ -1,6 +1,6 @@
 # Flutter with Redux Saga
 
-This is a sample for applying Redux Sage to Flutter.
+This is a sample for applying Redux Saga to Flutter.
 
 
 ## Getting Started

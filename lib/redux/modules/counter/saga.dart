@@ -3,16 +3,15 @@ import 'package:flutter_with_redux_saga/redux/modules/counter/selectors.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:redux_saga/redux_saga.dart';
 
-counterSage() sync* {
-  print("counterSage");
-  yield TakeEvery(_increaseCountSage, pattern: IncreaseCount);
-  yield TakeEvery(_decreaseCountSage, pattern: DecreaseCount);
-  yield TakeEvery(_clearCountSage, pattern: ClearCount);
-  yield TakeEvery(_assignCountSage, pattern: AssignCount);
+counterSaga() sync* {
+  yield TakeEvery(_increaseCountSaga, pattern: IncreaseCount);
+  yield TakeEvery(_decreaseCountSaga, pattern: DecreaseCount);
+  yield TakeEvery(_clearCountSaga, pattern: ClearCount);
+  yield TakeEvery(_assignCountSaga, pattern: AssignCount);
 
 }
 
-_increaseCountSage({dynamic action}) sync* {
+_increaseCountSaga({dynamic action}) sync* {
   var result = Result<int>();
   yield Select(selector: selectCount, result:result);  
   yield Call((){
@@ -20,7 +19,7 @@ _increaseCountSage({dynamic action}) sync* {
   });
 }
 
-_decreaseCountSage({dynamic action}) sync* {
+_decreaseCountSaga({dynamic action}) sync* {
   var result = Result<int>();
   yield Select(selector: selectCount, result:result);  
   yield Call((){
@@ -28,7 +27,7 @@ _decreaseCountSage({dynamic action}) sync* {
   });
 }
 
-_clearCountSage({dynamic action}) sync* {
+_clearCountSaga({dynamic action}) sync* {
   var result = Result<int>();
   yield Select(selector: selectCount, result:result);  
   yield Call((){
@@ -36,7 +35,7 @@ _clearCountSage({dynamic action}) sync* {
   });
 }
 
-_assignCountSage({dynamic action}) sync* {
+_assignCountSaga({dynamic action}) sync* {
   var result = Result<int>();
   yield Select(selector: selectCount, result:result);  
   yield Call((){
