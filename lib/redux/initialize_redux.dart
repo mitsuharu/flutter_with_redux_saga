@@ -36,7 +36,7 @@ Future<Store<RootState>> initializeRedux() async {
     sagaMiddleware.setStore(store);
 
     // then run the saga
-    sagaMiddleware.run(rootSage);
+    sagaMiddleware.run(rootSaga);
     
     return store;
 }
